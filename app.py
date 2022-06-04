@@ -2,7 +2,7 @@ import sqlite3
 import datetime
 from flask import Flask, render_template, request, redirect, url_for
 
-bd = '/Users/user/Desktop/3.db'
+bd = 'your db'
 
 class BuldDB:
     def __init__(self, db_file):
