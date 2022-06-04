@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <form action="{{ url_for('index') }}" method="POST">
+        <label for="formGroupExampleInput">id for accounts starts with 'C'</label>
+        <input class="form-control" type="text" placeholder="id" name="id_input" value="{{
+                    request.form.get('id_input', '') }}">
+
+        <label for="formGroupExampleInput">Input number of account </label>
+        <input class="form-control" type="text" placeholder="number" name="number_input" value="{{
+                    request.form.get('number_input', '') }}">
+
+        <label for="formGroupExampleInput">Input name of client</label>
+        <input class="form-control" type="text" placeholder="client" name="client_input" value="{{
+                    request.form.get('client_input', '') }}">
+
+        <small id="emailHelp" class="form-text text-muted">be sure that you input data belong all forms</small>
+        <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+{% endblock %}
+
+{% block checking %}
+    {% for res in results %}
+        <div class="result">
+
+            {{ res['block'] }}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block deleting %}
+    <form action="{{ url_for('delete') }}" method="POST">
+        <label for="formGroupExampleInput">deleting account</label>
+        <input class="form-control" type="text" placeholder="to delete input id of account" name="del_input" value="{{
+                        request.form.get('del_input', '') }}">
+        <small id="emailHelp" class="form-text text-muted">if you press the button data will deleted forever</small>
+        <button type="submit" class="btn btn-primary">Delete</button>
+
+    </form>
+{% endblock %}
